@@ -3,40 +3,34 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String id, password, choose;
 
-        double n1, n2;
-        int choose;
 
-        System.out.print("Birinci sayıyı giriniz: ");
-        n1 = scanner.nextDouble();
+        System.out.print("Kullanıcı adınızı giriniz: ");
+        id = scanner.nextLine();
 
-        System.out.print("İkinci sayıyı giriniz: ");
-        n2 = scanner.nextDouble();
+        System.out.print("Şifrenizi giriniz: ");
+        password = scanner.nextLine();
 
-        System.out.println("Yapmak istediğiniz işlemi seçiniz...");
-        System.out.println("1.Toplama\n2.Çıkarma\n3.Çarpma\n4.Bölme");
-
-        choose = scanner.nextInt();
-
-        switch (choose){
-            case 1 :
-                System.out.println("Sayıların toplamı " + n1 + n2);
-                break;
-            case 2 :
-                System.out.println("Sayıların çıkarma işlemi " + (n1 - n2));
-                break;
-            case 3 :
-                System.out.println("Sayıların çarpımı " + (n1*n2));
-                break;
-            case 4 :
-                if (n2 !=0){
-                System.out.println("Sayıların bölümü " + (n1/n2));
-                }else{
-                    System.out.println("Bir sayı sıfıra bölünemez...");
+        if (id.equals("ahmet arif") && password.equals("akıncı")) {
+            System.out.println("Başarıyla giriş yaptınız...");
+        } else {
+            System.out.println("Giriş bilgileriniz yanlış, şifrenizi sıfırlamak istiyor musunuz?");
+            choose = scanner.nextLine();
+            if (choose.equals("evet")) {
+                System.out.print("Yeni şifrenizi girin: ");
+                password = scanner.nextLine();
+                if (password.equals("akıncı")){
+                    System.out.println("Şifre oluşturulamadı lütfen başka şifre girin");
+                } else {
+                    System.out.println("Şifre oluşturuldu");
                 }
-                break;
-            default:
-                System.out.println("Geçersiz Sayı Seçimi...");
+
+            } else if (choose.equals("hayır")) {
+                System.out.println("Şifreniz sıfırlanmamıştır...");
+            } else {
+                System.out.println("Geçersiz işlem...");
+            }
         }
     }
 }
